@@ -15,6 +15,7 @@ const packages: any = {
  **********************************************************************************************/
 const barrels: string[] = [
   // Angular specific barrels.
+  '@angular/app-shell',
   '@angular/core',
   '@angular/common',
   '@angular/compiler',
@@ -22,6 +23,8 @@ const barrels: string[] = [
   '@angular/router',
   '@angular/platform-browser',
   '@angular/platform-browser-dynamic',
+  '@angular2-material/core',
+  '@angular2-material/toolbar',
 
   // Thirdparty barrels.
   'rxjs',
@@ -44,10 +47,16 @@ declare var System: any;
 System.config({
   map: {
     '@angular': 'vendor/@angular',
+    '@angular2-material': 'vendor/@angular2-material',
     'rxjs': 'vendor/rxjs',
     'main': 'main.js'
   },
-  packages: cliSystemConfigPackages
+  packages: Object.assign({}, cliSystemConfigPackages, {
+        '@angular2-material/toolbar': {
+            defaultExtension: 'js',
+            main: 'toolbar.js'
+        }
+  })
 });
 
 // Apply the user's configuration.
