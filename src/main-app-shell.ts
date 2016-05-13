@@ -1,9 +1,11 @@
 import {provide} from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 import {ProgressiveAppComponent} from './app/';
+
 import {
   REQUEST_URL,
-  ORIGIN_URL
+  ORIGIN_URL,
+  NODE_HTTP_PROVIDERS
 } from 'angular2-universal';
 import {APP_SHELL_BUILD_PROVIDERS} from '@angular/app-shell';
 

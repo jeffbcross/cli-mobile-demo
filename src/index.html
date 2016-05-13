@@ -26,12 +26,10 @@
     }
   </script>
   {{/if}}
-  
+
 </head>
 <body>
   <progressive-app>Loading...</progressive-app>
-
-  
 
     {{#if environment.production}}
       <script src="/app-concat.js" async></script>
@@ -43,9 +41,6 @@
         }).catch(console.error.bind(console));
       </script>
     {{/if}}
-
-  
-
 
 
 </body>

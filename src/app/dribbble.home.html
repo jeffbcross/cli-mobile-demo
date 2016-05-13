@@ -1,0 +1,24 @@
+  <md-toolbar>
+    <h1 *shellNoRender>
+      POSTRENDER
+    </h1>
+    <h1 *shellRender>
+      PRERENDER
+    </h1>
+  </md-toolbar>
+
+<div class="album text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="card" *ngFor=" let post of posts">
+				<a [routerLink]="['/Post', {id: post.id}]">
+				<img src="{{post.images.normal}}" alt="Card image cap" class="img-responsive">
+				<p class="card-text">{{post.title}}</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="text-xs-center">
+		<button class="btn btn-primary" (click)="loadMore();">LOAD MORE</button>
+	</div>
+</div>

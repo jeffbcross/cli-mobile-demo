@@ -2,12 +2,10 @@
  * User Configuration.
  **********************************************************************************************/
 /** Map relative paths to URLs. */
-const map: any = {
-};
+const map: any = {}
 
 /** User packages configuration. */
-const packages: any = {
-};
+const packages: any = {}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -25,7 +23,9 @@ const barrels: string[] = [
   '@angular/platform-browser-dynamic',
   '@angular2-material/core',
   '@angular2-material/toolbar',
-
+  '@angular/router-deprecated',
+  '@angular/upgrade',
+  '@angular/testing',
   // Thirdparty barrels.
   'rxjs',
 
@@ -49,12 +49,16 @@ System.config({
     '@angular': 'vendor/@angular',
     '@angular2-material': 'vendor/@angular2-material',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    'main': 'main.js',
+    'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api'
   },
   packages: Object.assign({}, cliSystemConfigPackages, {
         '@angular2-material/toolbar': {
             defaultExtension: 'js',
             main: 'toolbar.js'
+        },
+        'angular2-in-memory-web-api': {
+          defaultExtension: 'js'
         }
   })
 });
