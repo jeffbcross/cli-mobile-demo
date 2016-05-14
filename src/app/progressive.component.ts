@@ -23,7 +23,7 @@ import { RouteConfig , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/route
   providers: [ROUTER_PROVIDERS]
 })
 @RouteConfig([
-  {path: '/snaps', component: SnapsComponent, as: 'Home', useAsDefault: true}
+  {path: '/snaps/...', component: SnapsComponent, as: 'Home', useAsDefault: true}
 ])
 export class ProgressiveAppComponent {
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { PostComponent } from './+post';
+import { Routes , ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -8,6 +10,9 @@ import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
   styleUrls: ['snaps.component.css'],
   directives: [ROUTER_DIRECTIVES]
 })
+@Routes([
+  {path: '/post', component: PostComponent}
+])
 export class SnapsComponent implements OnInit {
 
   constructor() {}
