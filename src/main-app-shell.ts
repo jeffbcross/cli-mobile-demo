@@ -1,6 +1,8 @@
 import {provide} from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 import {ProgressiveAppComponent} from './app/';
+import { ROUTER_PROVIDERS } from '@angular/router';
+import { NODE_LOCATION_PROVIDERS, NODE_ROUTER_PROVIDERS } from 'angular2-universal';
 
 import {
   REQUEST_URL,
@@ -17,7 +19,10 @@ export const options = {
   platformProviders: [
     provide(ORIGIN_URL, {
       useValue: ''
-    })
+    }),
+    NODE_LOCATION_PROVIDERS,
+    NODE_ROUTER_PROVIDERS,
+    ROUTER_PROVIDERS
   ],
   providers: [
     APP_SHELL_BUILD_PROVIDERS,
