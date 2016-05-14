@@ -20,9 +20,18 @@ import {PostComponent} from './dribbble.post';
     {path: '/snaps/:id', component: PostComponent, as: 'Post'}
 ])
 @Component({
-    moduleId: module.id,
     selector: 'dribbble',
-    templateUrl: './dribbble.app.html',
+    template: `
+    <div class="">
+      <nav class="navbar navbar-dark navbar-fixed-top bg-primary bg-faded">
+        <div class="collapse navbar-toggleable-xs container" id="navbar-header">
+          <a class="navbar-brand" [routerLink]="['/Home']">NG2 Dribbble</a>
+        </div>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
+
+    `,
     directives: [ROUTER_DIRECTIVES]
 })
 export class DribbbleComponent {
