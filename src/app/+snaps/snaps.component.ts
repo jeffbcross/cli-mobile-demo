@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES, RouteConfig } from '@angular/router-deprecated';
+import { ROUTER_DIRECTIVES, RouteConfig, CanDeactivate, ComponentInstruction } from '@angular/router-deprecated';
 import { PostComponent } from './+post';
+import { DribbbleService } from '../dribbble.service';
 
 @Component({
   moduleId: module.id,
@@ -12,11 +13,38 @@ import { PostComponent } from './+post';
 @RouteConfig([
   {path: '/:id', component: PostComponent}
 ])
-export class SnapsComponent implements OnInit {
+export class SnapsComponent implements CanDeactivate, OnInit {
+    name: string = 'World';
+    posts;
+    dl:DribbbleService;
+    page = 0;
+    constructor(dl: DribbbleService){
+        this.dl = dl;
+        this.page = 1;
 
-  constructor() {}
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.dl.getPosts(this.page).subscribe(res => {
+        this.posts = res.json().data;
+      });
+    }
+
+    routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) {
+        window.scrollTo(0, 0);
+        return true;
+    }
+    gotoPost(id){
+        alert(id);
+    }
+    loadMore() {
+        this.page++;
+        this.dl.getPosts(this.page).subscribe(res => {
+            res.json().data.forEach(post => {
+                this.posts.push(post);
+            });
+        })
+    }
 
 }
+
