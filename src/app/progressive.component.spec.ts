@@ -14,9 +14,4 @@ describe('App: Progressive', () => {
       inject([ProgressiveAppComponent], (app: ProgressiveAppComponent) => {
     expect(app).toBeTruthy();
   }));
-
-  it('should have as title \'progressive works!\'',
-      inject([ProgressiveAppComponent], (app: ProgressiveAppComponent) => {
-    expect(app.title).toEqual('progressive works!');
-  }));
 });

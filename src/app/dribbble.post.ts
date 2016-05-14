@@ -9,7 +9,7 @@ import {RouteParams} from '@angular/router-deprecated';
 export class PostComponent {
 	post;
 	constructor(dl:Dribbble, rp:RouteParams){
-		dl.getPost(rp.params.id).subscribe(res => {
+		dl.getPost(rp.get('id')).subscribe(res => {
 			this.post = res.json().data;
 		});
 	}

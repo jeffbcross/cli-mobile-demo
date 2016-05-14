@@ -1,4 +1,3 @@
-///<reference path="../typings/browser.d.ts"/>
 import {Component, provide} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Http, HTTP_PROVIDERS, Jsonp, JSONP_PROVIDERS} from '@angular/http'
@@ -21,6 +20,7 @@ import {PostComponent} from './dribbble.post';
     {path: '/snaps/:id', component: PostComponent, as: 'Post'}
 ])
 @Component({
+    moduleId: module.id,
     selector: 'dribbble',
     templateUrl: './dribbble.app.html',
     directives: [ROUTER_DIRECTIVES]
