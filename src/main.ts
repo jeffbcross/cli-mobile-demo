@@ -16,9 +16,15 @@ import {
   APP_BASE_HREF}
 from '@angular/common';
 
+import { DribbbleService } from './app/dribbble.service';
+
 if (environment.production) {
   enableProdMode();
 }
 
-// bootstrap(ProgressiveAppComponent, APP_SHELL_RUNTIME_PROVIDERS);
-bootstrap(ProgressiveAppComponent, [APP_SHELL_RUNTIME_PROVIDERS, JSONP_PROVIDERS, ROUTER_PROVIDERS, provide(APP_BASE_HREF, {useValue: '/'})]);
+bootstrap(ProgressiveAppComponent, [
+  APP_SHELL_RUNTIME_PROVIDERS,
+  JSONP_PROVIDERS,
+  ROUTER_PROVIDERS,
+  provide(APP_BASE_HREF, {useValue: '/'}),
+  DribbbleService]);
