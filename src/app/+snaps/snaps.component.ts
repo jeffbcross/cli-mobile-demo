@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, RouteConfig, CanDeactivate, ComponentInstruction } from '@angular/router-deprecated';
 import { PostComponent } from './+post';
 import { DribbbleService } from '../dribbble.service';
+import { ListComponent } from './+list';
 
 @Component({
   moduleId: module.id,
@@ -11,7 +12,8 @@ import { DribbbleService } from '../dribbble.service';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  {path: '/:id', component: PostComponent}
+  {path: '/:id', component: PostComponent},
+  {path: 'list', component: ListComponent}
 ])
 export class SnapsComponent implements CanDeactivate, OnInit {
     name: string = 'World';
