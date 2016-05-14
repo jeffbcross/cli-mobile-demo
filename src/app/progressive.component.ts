@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MdToolbar } from '@angular2-material/toolbar';
 import { APP_SHELL_DIRECTIVES } from '@angular/app-shell';
 import { SnapsComponent } from './+snaps';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
+import { RouteConfig , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
 
 @Component({
   moduleId: module.id,
@@ -16,13 +16,14 @@ import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
       PRERENDER
     </h1>
   </md-toolbar>
+  <router-outlet *shellNoRender></router-outlet>
   `,
   styles: [],
-  directives: [MdToolbar, APP_SHELL_DIRECTIVES],
+  directives: [MdToolbar, APP_SHELL_DIRECTIVES, ROUTER_DIRECTIVES],
   providers: [ROUTER_PROVIDERS]
 })
-@Routes([
-  {path: '/snaps', component: SnapsComponent}
+@RouteConfig([
+  {path: '/snaps', component: SnapsComponent, as: 'Home', useAsDefault: true}
 ])
 export class ProgressiveAppComponent {
 
