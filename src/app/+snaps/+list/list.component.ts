@@ -7,7 +7,6 @@ import { DribbbleService } from '../../dribbble.service';
   selector: 'app-list',
   templateUrl: 'list.component.html',
   styleUrls: ['list.component.css'],
-  providers: [DribbbleService],
   directives: [ROUTER_DIRECTIVES]
 })
 export class ListComponent implements OnInit {

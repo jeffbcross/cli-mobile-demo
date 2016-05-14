@@ -18,8 +18,7 @@ import { RouteConfig , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/route
     </div>
   `,
   styles: [],
-  directives: [MdToolbar, APP_SHELL_DIRECTIVES, ROUTER_DIRECTIVES],
-  providers: [ROUTER_PROVIDERS]
+  directives: [MdToolbar, APP_SHELL_DIRECTIVES, ROUTER_DIRECTIVES]
 })
 @RouteConfig([
   {path: '/snaps/...', component: SnapsComponent, as: 'Home', useAsDefault: true}
