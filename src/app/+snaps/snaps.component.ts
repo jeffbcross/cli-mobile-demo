@@ -12,41 +12,8 @@ import { ListComponent } from './+list';
   directives: [ROUTER_DIRECTIVES]
 })
 @RouteConfig([
-  {path: '/:id', component: PostComponent},
-  {path: 'list', component: ListComponent}
+  {path: '/:id', component: PostComponent, name: 'Post'},
+  {path: 'list', component: ListComponent, useAsDefault: true}
 ])
-export class SnapsComponent implements CanDeactivate, OnInit {
-    name: string = 'World';
-    posts;
-    dl:DribbbleService;
-    page = 0;
-    constructor(dl: DribbbleService){
-        this.dl = dl;
-        this.page = 1;
-
-    }
-
-    ngOnInit() {
-      this.dl.getPosts(this.page).subscribe(res => {
-        this.posts = res.json().data;
-      });
-    }
-
-    routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) {
-        window.scrollTo(0, 0);
-        return true;
-    }
-    gotoPost(id){
-        alert(id);
-    }
-    loadMore() {
-        this.page++;
-        this.dl.getPosts(this.page).subscribe(res => {
-            res.json().data.forEach(post => {
-                this.posts.push(post);
-            });
-        })
-    }
-
-}
+export class SnapsComponent {}
 
