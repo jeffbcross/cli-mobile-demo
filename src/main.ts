@@ -21,5 +21,4 @@ if (environment.production) {
 }
 
 // bootstrap(ProgressiveAppComponent, APP_SHELL_RUNTIME_PROVIDERS);
-bootstrap(ProgressiveAppComponent, [APP_SHELL_RUNTIME_PROVIDERS, JSONP_PROVIDERS, ROUTER_PROVIDERS, provide(LocationStrategy, { useClass: HashLocationStrategy })
-,provide(APP_BASE_HREF, {useValue: '/'})]);
+bootstrap(ProgressiveAppComponent, [APP_SHELL_RUNTIME_PROVIDERS, JSONP_PROVIDERS, ROUTER_PROVIDERS, provide(APP_BASE_HREF, {useValue: '/'})]);
