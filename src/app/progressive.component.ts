@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MdToolbar } from '@angular2-material/toolbar';
 import { APP_SHELL_DIRECTIVES } from '@angular/app-shell';
 import { DribbbleComponent } from './dribbble.component'
+import { SnapsComponent } from './+snaps';
+import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -18,8 +20,12 @@ import { DribbbleComponent } from './dribbble.component'
   <dribbble></dribbble>
   `,
   styles: [],
-  directives: [MdToolbar, APP_SHELL_DIRECTIVES, DribbbleComponent]
+  directives: [MdToolbar, APP_SHELL_DIRECTIVES, DribbbleComponent],
+  providers: [ROUTER_PROVIDERS]
 })
+@Routes([
+  {path: '/snaps', component: SnapsComponent}
+])
 export class ProgressiveAppComponent {
 
 }
